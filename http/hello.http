@@ -1,0 +1,152 @@
+## 1
+GET localhost:8080/hello/coffee2
+Content-Type: application/json
+
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Wed, 18 Oct 2023 05:23:31 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#coffee hello!
+#
+#Response code: 200; Time: 87ms (87 ms); Content length: 13 bytes (13 B)
+
+## 2
+GET localhost:8080/hello2/amond
+Content-Type: application/json
+
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Set-Cookie: JSESSIONID=EE8635E3D917580EAF8791309E8E9EF0; Path=/; HttpOnly
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 12
+#Date: Wed, 18 Oct 2023 05:27:46 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#amond hello!
+#
+#Response code: 200; Time: 82ms (82 ms); Content length: 12 bytes (12 B)
+
+## 3
+GET localhost:8080/hello/coffee2
+Content-Type: application/json
+
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: JSESSIONID=EE8635E3D917580EAF8791309E8E9EF0
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 14
+#Date: Wed, 18 Oct 2023 05:30:22 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#coffee2 hello!
+#
+#Response code: 200; Time: 8ms (8 ms); Content length: 14 bytes (14 B)
+
+## 4 (위에 요청 내역 지운 상태에서 테스트 해봄: 세션담은 해더 요청 나감)
+GET localhost:8080/hello/coffee3
+Content-Type: application/json
+
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: JSESSIONID=EE8635E3D917580EAF8791309E8E9EF0
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 14
+#Date: Wed, 18 Oct 2023 05:31:46 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#coffee3 hello!
+#
+#Response code: 200; Time: 4ms (4 ms); Content length: 14 bytes (14 B)
+
+## 5 (100s 이후에 테스트 해보았는데, request header 에 jsession 살아있었다..!,, 서버에서 바뀌는 설정)
+GET localhost:8080/hello/amond5
+Content-Type: application/json
+
+#GET http://localhost:8080/hello/amond5
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: JSESSIONID=EE8635E3D917580EAF8791309E8E9EF0
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Wed, 18 Oct 2023 05:37:50 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#amond5 hello!
+#
+#Response code: 200; Time: 10ms (10 ms); Content length: 13 bytes (13 B)
+#
+
+## 6
+GET localhost:8080/hello2/amond6
+Content-Type: application/json
+
+#GET http://localhost:8080/hello2/amond6
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: JSESSIONID=EE8635E3D917580EAF8791309E8E9EF0
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Set-Cookie: JSESSIONID=854A88E1D41116B05AFFC03664C70085; Path=/; HttpOnly
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Wed, 18 Oct 2023 05:40:24 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#amond6 hello!
+#
+#Response code: 200; Time: 12ms (12 ms); Content length: 13 bytes (13 B)
+#
+#2023-10-18 14:27:46.362  INFO 5348 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : 2 session: org.apache.catalina.session.StandardSessionFacade@1c4c26a4
+#2023-10-18 14:27:46.362  INFO 5348 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : EE8635E3D917580EAF8791309E8E9EF0
+#org.apache.catalina.connector.RequestFacade@160c9965
+#org.apache.catalina.connector.RequestFacade@160c9965
+#org.apache.catalina.connector.RequestFacade@160c9965
+#org.apache.catalina.connector.RequestFacade@160c9965
+#2023-10-18 14:40:24.756  INFO 5348 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : 2 session: org.apache.catalina.session.StandardSessionFacade@2c1721b7
+#2023-10-18 14:40:24.757  INFO 5348 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : 854A88E1D41116B05AFFC03664C70085
+
+#676D9D17DAE08126EFE2E75297005AAB
