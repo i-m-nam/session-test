@@ -150,3 +150,128 @@ Content-Type: application/json
 #2023-10-18 14:40:24.757  INFO 5348 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : 854A88E1D41116B05AFFC03664C70085
 
 #676D9D17DAE08126EFE2E75297005AAB
+
+
+
+
+
+GET localhost:8080/hello2/1101
+Content-Type: application/json
+
+#
+#
+#GET http://localhost:8080/hello2/1101
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#HTTP/1.1 200
+#Set-Cookie: SESSION=YmY0NmI4YTMtZjQ2MC00Y2Y3LWFjMjYtMzlhZDg0OTBiMDVm; Path=/; HttpOnly; SameSite=Lax
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 11
+#Date: Tue, 31 Oct 2023 22:50:18 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#1101 hello!
+#
+#Response code: 200; Time: 126ms (126 ms); Content length: 11 bytes (11 B)
+
+
+
+GET localhost:8080/hello2/1101-2
+Content-Type: application/json
+#
+#GET http://localhost:8080/hello2/1101-2
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: SESSION=YmY0NmI4YTMtZjQ2MC00Y2Y3LWFjMjYtMzlhZDg0OTBiMDVm
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#
+#
+#2023-11-01 07:54:55.030  INFO 11432 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : 2 session: org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper$HttpSessionWrapper@7fa44fff
+#2023-11-01 07:54:56.119  INFO 11432 --- [nio-8080-exec-1] sss.sessiontest.SampleController         : d77ad51f-47dd-4f1f-baab-1ef36bd4ba45
+#
+#
+#HTTP/1.1 200
+#Set-Cookie: SESSION=ZDc3YWQ1MWYtNDdkZC00ZjFmLWJhYWItMWVmMzZiZDRiYTQ1; Path=/; HttpOnly; SameSite=Lax
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Tue, 31 Oct 2023 22:56:05 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#1101-2 hello!
+#
+#Response code: 200; Time: 129118ms (2 m 9 s 118 ms); Content length: 13 bytes (13 B)
+
+
+GET localhost:8080/hello2/1101-3
+Content-Type: application/json
+
+
+#2023-11-01 08:03:36.194  INFO 11432 --- [nio-8080-exec-2] sss.sessiontest.SampleController         : 2 session: org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper$HttpSessionWrapper@4163603d
+#2023-11-01 08:03:36.194  INFO 11432 --- [nio-8080-exec-2] sss.sessiontest.SampleController         : d77ad51f-47dd-4f1f-baab-1ef36bd4ba45
+
+#GET http://localhost:8080/hello2/1101-3
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: SESSION=ZDc3YWQ1MWYtNDdkZC00ZjFmLWJhYWItMWVmMzZiZDRiYTQ1
+#Accept-Encoding: br,deflate,gzip,x-gzip
+
+
+
+#
+#Response code: 200; Time: 129118ms (2 m 9 s 118 ms); Content length: 13 bytes (13 B)
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Tue, 31 Oct 2023 23:03:59 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#1101-3 hello!
+#
+#Response code: 200; Time: 81857ms (1 m 21 s 857 ms); Content length: 13 bytes (13 B)
+
+###
+
+GET localhost:8080/hello2/1101-4
+Content-Type: application/json
+
+//01 08:15:17.188 DEBUG 11432 --- [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to sss.sessiontest.SampleController#sayHello2(String, HttpServletRequest)
+//2023-11-01 08:15:17.188  INFO 11432 --- [nio-8080-exec-3] sss.sessiontest.SampleController         : 2 session: org.springframework.session.web.http.SessionRepositoryFilter$SessionRepositoryRequestWrapper$HttpSessionWrapper@77a36e5f
+//2023-11-01 08:15:17.188  INFO 11432 --- [nio-8080-exec-3] sss.sessiontest.SampleController         : d77ad51f-47dd-4f1f-baab-1ef36bd4ba45
+
+
+#GET http://localhost:8080/hello2/1101-4
+#Content-Type: application/json
+#Connection: Keep-Alive
+#User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8)
+#Cookie: SESSION=ZDc3YWQ1MWYtNDdkZC00ZjFmLWJhYWItMWVmMzZiZDRiYTQ1
+#Accept-Encoding: br,deflate,gzip,x-gzip
+#
+####
+#
+#HTTP/1.1 200
+#Content-Type: text/plain;charset=UTF-8
+#Content-Length: 13
+#Date: Tue, 31 Oct 2023 23:15:21 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#1101-4 hello!
+#
+#Response code: 200; Time: 12289ms (12 s 289 ms); Content length: 13 bytes (13 B)
+
+
+GET localhost:8080/hello2/1101-4
+Content-Type: application/json

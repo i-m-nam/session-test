@@ -3,3 +3,6 @@ server:
     session:
       timeout: 100 # 3600 == 30m
 #      cookie:
+logging:
+  level:
+    root: debug
